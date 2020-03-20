@@ -28,27 +28,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- style -->
-    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- function-->
     <script>
-        function submit(){
-            alert('test');
+        function submit() {
+            let orderName = $('#order-name').val();
+            let prodcutCount = $('#product-count').val();
+            let addressDetail = $('#address').val();
+            let cellphoneSecond = $('#cellphone-second').val();
+            let cellphoneThird = $('#cellphone-third').val();
 
+
+            if (orderName = '') {
+                console.log(1);
+                alert("주문자 성함을 입력해주세요.");
+            }
+            
+            if (productCount = '') {
+                alert("수량을 입력해주세요.");
+            } 
+            
+            if (addressDetail = '') {
+                alert("주소를 입력해주세요.");
+            }
+            
+            if (cellphoneSecond = '') {
+                alert("휴대폰번호 앞자리를 입력해주세요.");
+            } 
+            
+            if (cellphoneThird = '') {
+                alert("휴대폰번호 뒷자리를 입력해주세요.");
+            }
         }
-
-
-
-
-
     </script>
-
-
-
-
-
-
-
 
 </head>
 
@@ -81,7 +94,7 @@
                         주문자성함 :
                     </div>
                     <div class="col-9">
-                        <input type="text" class="form-control" placeholder="이름을 입력하세요.">
+                        <input id="order-name" type="text" class="form-control" placeholder="이름을 입력하세요.">
                     </div>
                 </div>
                 <div class="form-row">
@@ -89,13 +102,13 @@
                         수량 :
                     </div>
                     <div class="col-9">
-                        <select type="text" class="form-control" placeholder="City">
-                            <option>수량을 선택하세요.</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select id="product-count" type="text" class="form-control" placeholder="City">
+                            <option selected value="">수량을 선택하세요.</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </div>
                 </div>
@@ -105,7 +118,7 @@
                         주소 :
                     </div>
                     <div class="col-9">
-                        <input type="text" class="form-control" placeholder="주소를 입력하세요.">
+                        <input id="address" type="text" class="form-control" placeholder="주소를 입력하세요.">
                     </div>
                 </div>
 
@@ -114,8 +127,8 @@
                         전화번호 :
                     </div>
                     <div class="col">
-                        <select type="text" class="form-control" placeholder="전화번호를 입력하세요.">
-                            <option>010</option>
+                        <select id="cellphone-fisrt" type="text" class="form-control" placeholder="전화번호를 입력하세요.">
+                            <option selected>010</option>
                             <option>011</option>
                             <option>016</option>
                             <option>017</option>
@@ -125,11 +138,11 @@
                     </div>
                     <span class="dash">-</span>
                     <div class="col-3">
-                        <input type="text" class="form-control">
+                        <input id="cellphone-second" type="text" class="form-control">
                     </div>
                     <span class="dash">-</span>
                     <div class="col-3">
-                        <input type="text" class="form-control">
+                        <input id="cellphone-third" type="text" class="form-control">
                     </div>
                 </div>
                 <button onclick=submit() type="submit" class="btn btn-primary bt-addon">주문하기</button>
