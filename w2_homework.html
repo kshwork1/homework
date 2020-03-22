@@ -34,35 +34,37 @@
     <script>
         function submit() {
             let orderName = $('#order-name').val();
-            let prodcutCount = $('#product-count').val();
+            let productCount = $('#product-count').val();
             let addressDetail = $('#address').val();
             let cellphoneSecond = $('#cellphone-second').val();
             let cellphoneThird = $('#cellphone-third').val();
 
 
-            if (orderName = '') {
-                console.log(1);
+            if (orderName == '') {
                 alert("주문자 성함을 입력해주세요.");
-            }
-            
-            if (productCount = '') {
-                alert("수량을 입력해주세요.");
-            } 
-            
-            if (addressDetail = '') {
+                $('#order-name').focus();
+            } else if (productCount == '') {
+                alert("수량을 선택해주세요."); 
+                $('#product-count').focus();
+            } else if (addressDetail == '') {
                 alert("주소를 입력해주세요.");
-            }
-            
-            if (cellphoneSecond = '') {
+                $('#address').focus();
+            } else if (cellphoneSecond == '') {
                 alert("휴대폰번호 앞자리를 입력해주세요.");
-            } 
-            
-            if (cellphoneThird = '') {
+                $('#cellphone-second').focus();
+            } else if (cellphoneThird == '') {
                 alert("휴대폰번호 뒷자리를 입력해주세요.");
+                $('#cellphone-third').focus();
             }
         }
     </script>
-
+    <script>
+        function numberMaxLength(e){
+            if(e.value.length > e.maxLength){
+                e.value = e.value.slice(0, e.maxLength);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -128,21 +130,21 @@
                     </div>
                     <div class="col">
                         <select id="cellphone-fisrt" type="text" class="form-control" placeholder="전화번호를 입력하세요.">
-                            <option selected>010</option>
-                            <option>011</option>
-                            <option>016</option>
-                            <option>017</option>
-                            <option>018</option>
-                            <option>019</option>
+                            <option selected value="">010</option>
+                            <option value="1">011</option>
+                            <option value="2">016</option>
+                            <option value="3">017</option>
+                            <option value="4">018</option>
+                            <option value="5">019</option>
                         </select>
                     </div>
                     <span class="dash">-</span>
                     <div class="col-3">
-                        <input id="cellphone-second" type="text" class="form-control">
+                        <input id="cellphone-second" type="number" class="form-control" maxlength="4" oninput="numberMaxLength(this);"/>
                     </div>
                     <span class="dash">-</span>
                     <div class="col-3">
-                        <input id="cellphone-third" type="text" class="form-control">
+                        <input id="cellphone-third" type="number" class="form-control" maxlength="4" oninput="numberMaxLength(this);"/>
                     </div>
                 </div>
                 <button onclick=submit() type="submit" class="btn btn-primary bt-addon">주문하기</button>
